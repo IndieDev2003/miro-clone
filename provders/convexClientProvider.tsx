@@ -17,7 +17,21 @@ export default function ConvexClientProvider({
   children,
 }: ConvexClientProviderProps) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        layout: {
+          logoImageUrl: "/icons/yoom-logo.svg",
+          socialButtonsVariant: "iconButton",
+        },
+        variables: {
+          colorText: "#000",
+          colorPrimary: "#000",
+          colorBackground: "#F5F5F5",
+          colorInputBackground: "#ffff",
+          colorInputText: "#000",
+        },
+      }}
+    >
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <Authenticated>{children}</Authenticated>
         <AuthLoading>
